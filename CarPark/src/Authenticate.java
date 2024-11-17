@@ -31,8 +31,12 @@ public class Authenticate extends App {
     }
 
     public void authenticate(String username, String password){
-        String loginUsername = "admin";
-        String loginPassword = "password";
+        HandleCSV handleCSV = new HandleCSV();
+
+        String[] credentials = handleCSV.read("credentials");
+
+        String loginUsername = credentials[0];
+        String loginPassword = credentials[1];
 
         if(username.equals(loginUsername) && password.equals(loginPassword)){
             changeLoginStatus();
