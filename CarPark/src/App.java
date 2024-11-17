@@ -5,9 +5,16 @@ public class App {
     }
 
     public static void main(String[] args) throws Exception {
-        Authenticate auth = new Authenticate();
+        // Authenticate auth = new Authenticate();
+        HandleCSV handleCSV = new HandleCSV();
 
-        auth.handleAuth();
+        String[] credentials = handleCSV.read("credentials");
+        String username = credentials[0];
+        String password = credentials[1];
+
+        System.out.println(username + password);
+
+        // auth.handleAuth();
     }
 
 }
