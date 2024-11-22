@@ -11,7 +11,7 @@ public class HandleCSV {
             if(fileType.equals("credentials")){
                 System.out.println("fetch credentials csv");
 
-                File myObj = new File("C:/Users/University/OneDrive - Cardiff Metropolitan University/Desktop/Prgrm fndmt/Assessment/credentials.txt");
+                File myObj = new File("C:\\Users\\University\\OneDrive - Cardiff Metropolitan University\\Desktop\\Prgrm fndmt\\Assessment\\java-carpark\\Credentials.csv");
                 Scanner myReader = new Scanner(myObj);
 
                 String password = "";
@@ -21,8 +21,8 @@ public class HandleCSV {
                     String data = myReader.nextLine();
                     String[] dataArray = data.split(",");
 
-                    username = dataArray[2];
-                    password = dataArray[3];
+                    username = dataArray[0];
+                    password = dataArray[1];
 
                 }
 
