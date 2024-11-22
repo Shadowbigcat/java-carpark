@@ -1,15 +1,15 @@
 import javax.swing.*;  
 
-public class GUI extends App {
-    public MainScreen(){
+public class Gui extends App {
+    public void MainScreen(){
         //Liz
     };
 
-    public LogInScreen(){
+    public void LogInScreen(){
         //Lee
     };
 
-    public AdminScreen(){
+    public void AdminScreen(){
         // Jake
     };
 };
