@@ -11,26 +11,31 @@ public class HandleCSV {
             if(fileType.equals("credentials")){
                 System.out.println("fetch credentials csv");
 
-                File myObj = new File("C:\\Users\\University\\OneDrive - Cardiff Metropolitan University\\Desktop\\Prgrm fndmt\\Assessment\\java-carpark\\Credentials.csv");
-                Scanner myReader = new Scanner(myObj);
+                try {
+                    File credentialsFile = new File("CarPark/Credentials.csv");
+                    Scanner myReader = new Scanner(credentialsFile);
 
-                String password = "";
-                String username = "";
+                    String password = "";
+                    String username = "";
 
-                while(myReader.hasNextLine()){
-                    String data = myReader.nextLine();
-                    String[] dataArray = data.split(",");
+                    while(myReader.hasNextLine()){
+                        String data = myReader.nextLine();
+                        String[] dataArray = data.split(",");
 
-                    username = dataArray[0];
-                    password = dataArray[1];
+                        username = dataArray[0];
+                        password = dataArray[1];
 
+                    }
+
+                    String[] credentials = {username, password};
+                    
+                    myReader.close();
+
+                    return credentials;
+                } catch (FileNotFoundException e) {
+                    System.out.println("Error: Could not find Credentials.csv file");
+                    System.out.println("Looking in: " + new File("../Credentials.csv").getAbsolutePath());
                 }
-
-                String[] credentials = {username, password};
-                
-                myReader.close();
-
-                return credentials;
 
             } else if(fileType.equals("carpark")){
                 System.out.println("fetch carpark csv");
