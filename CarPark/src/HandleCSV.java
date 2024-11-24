@@ -73,10 +73,27 @@ public class HandleCSV {
         }
     }
     //Update
-    public void update(String[] data){
-        
+    public void update(String[] data) {
+        try {
+            File file = new File("CarPark/VehicleData.csv");
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+    
+            // Write header
+            writer.write("VRN,EntryDate,EntryTime,ExitDate,ExitTime,Payment\n");
+    
+            // Write data
+            for (String row : data) {
+                writer.write(row + "\n");
+            }
+    
+            writer.close();
+            System.out.println("File updated successfully");
+    
+        } catch (IOException e) {
+            System.out.println("Error updating file: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
-        
 
     //Delete
     

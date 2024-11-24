@@ -15,6 +15,9 @@ public class App {
         for (int i = 0; i < data.length; i++) {
             System.out.println("Row " + i + ": " + data[i]);
         }
+
+        // Update car details
+        CSV.update(data);
     }
 
 }
