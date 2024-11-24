@@ -27,11 +27,11 @@ public class HandleCSV {
                     }
 
                     myReader.close();
-                    App.carparkData = new String[]{username, password};
+                    App.credentials = new String[]{username, password};
                 } catch (FileNotFoundException e) {
                     System.out.println("Error: Could not find Credentials.csv file");
                     System.out.println("Looking in: " + new File("../Credentials.csv").getAbsolutePath());
-                    App.carparkData = new String[]{"", ""};
+                    App.credentials = new String[]{"", ""};
                 }
 
             } else if (fileType.equals("carpark")) {
