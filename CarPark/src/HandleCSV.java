@@ -27,33 +27,56 @@ public class HandleCSV {
 
                     }
 
-                    String[] credentials = {username, password};
-                    
                     myReader.close();
 
-                    return credentials;
+                    return new String[]{username, password};
                 } catch (FileNotFoundException e) {
                     System.out.println("Error: Could not find Credentials.csv file");
                     System.out.println("Looking in: " + new File("../Credentials.csv").getAbsolutePath());
+                    return new String[]{"", ""};
                 }
 
             } else if(fileType.equals("carpark")){
                 System.out.println("fetch carpark csv");
 
-                String[] carpark = {""};
+                try {
+                    File vehiclesFile = new File("CarPark/VehicleData.csv");
+                    Scanner myReader = new Scanner(vehiclesFile);
+                    StringBuilder carparkData = new StringBuilder();
+                    
+                    if(myReader.hasNextLine()) {
+                        myReader.nextLine();
+                    }
 
-                return carpark;
+                    while(myReader.hasNextLine()){
+                        String data = myReader.nextLine();
+                        carparkData.append(data).append("\n");
+                    }
+                    
+                    myReader.close();
+
+                    String data = carparkData.toString().trim();
+                    return data.isEmpty() ? new String[0] : data.split("\n");
+
+                } catch (FileNotFoundException e) {
+                    System.out.println("Error: Could not find Carpark data file");
+                    System.out.println("Looking in: " + new File("CarPark/VehicleData.csv").getAbsolutePath());
+                    return new String[0];
+                }
             } 
 
-        }catch (Exception e){
+            return new String[0];
+
+        } catch (Exception e){
             e.printStackTrace();
+            return new String[0];
         }
-
-        String[] carpark = {""};
-        return carpark;
     }
-
     //Update
+    public void update(String[] data){
+        
+    }
+        
 
     //Delete
     
