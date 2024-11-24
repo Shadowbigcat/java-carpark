@@ -92,7 +92,34 @@ public class HandleCSV {
             e.printStackTrace();
         }
     }
-
     //Delete
+    public void delete(int rowNumber) {
+        try {
+            if (rowNumber < 0 || rowNumber >= App.carparkData.length) {
+                System.out.println("Error: Invalid row number");
+                return;
+            }
     
+            String[] newData = new String[App.carparkData.length - 1];
+            
+            int newIndex = 0;
+            for (int i = 0; i < App.carparkData.length; i++) {
+                if (i != rowNumber) {
+                    newData[newIndex] = App.carparkData[i];
+                    newIndex++;
+                }
+            }
+    
+            App.carparkData = newData;
+    
+            // Update the CSV file
+            update(newData);
+    
+            System.out.println("Row " + rowNumber + " deleted successfully");
+    
+        } catch (Exception e) {
+            System.out.println("Error deleting row: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 }

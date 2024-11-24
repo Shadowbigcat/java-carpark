@@ -21,6 +21,6 @@ public class App {
         }
 
         // Update car details
-        CSV.update(carparkData);
+        CSV.delete(0);
     }
 }
