@@ -27,11 +27,11 @@ public class HandleCSV {
                     }
 
                     myReader.close();
-                    App.data = new String[]{username, password};
+                    App.carparkData = new String[]{username, password};
                 } catch (FileNotFoundException e) {
                     System.out.println("Error: Could not find Credentials.csv file");
                     System.out.println("Looking in: " + new File("../Credentials.csv").getAbsolutePath());
-                    App.data = new String[]{"", ""};
+                    App.carparkData = new String[]{"", ""};
                 }
 
             } else if (fileType.equals("carpark")) {
@@ -54,20 +54,20 @@ public class HandleCSV {
                     myReader.close();
 
                     String data = carparkData.toString().trim();
-                    App.data = data.isEmpty() ? new String[0] : data.split("\n");
+                    App.carparkData = data.isEmpty() ? new String[0] : data.split("\n");
 
                 } catch (FileNotFoundException e) {
                     System.out.println("Error: Could not find Carpark data file");
                     System.out.println("Looking in: " + new File("CarPark/VehicleData.csv").getAbsolutePath());
-                    App.data = new String[0];
+                    App.carparkData = new String[0];
                 }
             } else {
-                App.data = new String[0];
+                App.carparkData = new String[0];
             }
 
         } catch (Exception e) {
             e.printStackTrace();
-            App.data = new String[0];
+            App.carparkData = new String[0];
         }
     }
     //Update

@@ -1,24 +1,24 @@
 public class App {
     Boolean isLoggedIn;
-    static String[] data;
+    static String[] carparkData;
     
     public App() {
         isLoggedIn = false;
-        data = new String[0];
+        carparkData = new String[0];
     }
 
     public static void main(String[] args) throws Exception {
         // Authenticate auth = new Authenticate();
         // auth.handleAuth();
-        
+
         HandleCSV CSV = new HandleCSV();
         CSV.read("carpark");
         
-        for (int i = 0; i < data.length; i++) {
-            System.out.println("Row " + i + ": " + data[i]);
+        for (int i = 0; i < carparkData.length; i++) {
+            System.out.println("Row " + i + ": " + carparkData[i]);
         }
 
         // Update car details
-        CSV.update(data);
+        CSV.update(carparkData);
     }
 }
