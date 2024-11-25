@@ -1,4 +1,5 @@
-import javax.swing.*;  
+import javax.swing.*;
+import java.awt.*;
 
 public class Gui extends App {
     public void MainScreen(){

@@ -13,14 +13,18 @@ public class App {
         // Authenticate auth = new Authenticate();
         // auth.handleAuth();
 
-        HandleCSV CSV = new HandleCSV();
-        CSV.read("carpark");
+        // HandleCSV CSV = new HandleCSV();
+        // CSV.read("carpark");
         
-        for (int i = 0; i < carparkData.length; i++) {
-            System.out.println("Row " + i + ": " + carparkData[i]);
-        }
+        // for (int i = 0; i < carparkData.length; i++) {
+        //     System.out.println("Row " + i + ": " + carparkData[i]);
+        // }
 
-        // Update car details
-        CSV.delete(0);
+        // // Update car details
+        // CSV.delete(0);
+
+        AdminScreenGUI gui = new AdminScreenGUI();
+        gui.setLocationRelativeTo(null);
+        gui.setVisible(true);
     }
 }
