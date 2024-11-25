@@ -1,19 +1,7 @@
 import java.util.Scanner;
 
 public class Authenticate extends App {
-
-    public Boolean handleAuth(){
-
-        if(isLoggedIn == false){
-            logIn();
-        } else {
-            changeLoginStatus();
-        }
-
-        return isLoggedIn;
-    }
-
-    public void logIn(){
+    public void authenticate(){
         String username = "";
         String password = "";
 
@@ -27,26 +15,25 @@ public class Authenticate extends App {
             System.err.println(e);
         }
 
-        authenticate(username, password);
-    }
-
-    public void authenticate(String username, String password){
         HandleCSV handleCSV = new HandleCSV();
-
         handleCSV.read("credentials");
 
         String loginUsername = App.credentials[0];
         String loginPassword = App.credentials[1];
 
         if(username.equals(loginUsername) && password.equals(loginPassword)){
-            changeLoginStatus();
+            isLoggedIn = true;
         } else {
             System.out.println("Bad credentials");
         }
     }
 
-    public void changeLoginStatus(){
-        isLoggedIn = !isLoggedIn;
+    public void logout(){
+        isLoggedIn = false;
         System.out.println("Logged in:" + isLoggedIn);
+    }
+
+    public Boolean isAuthenticated(){
+        return isLoggedIn;
     }
 }
